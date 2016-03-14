@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DnevnikPedagoga</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <link rel="stylesheet" href="http://webfonts.ru/import/arimo.css" type="text/css" media="screen" />
+</head>
+<body>
+  <a name="top" id="top"></a>
+
+  <div id="strip"></div>
+
+  <div id="container">
+
+    <div id="header">
+      <%= link_to controller: 'articles' do%>
+      	<img src="/images/logo.png" width="125" alt="" class="logo" />
+      <% end %>
+    		<button id='add-new-material'>Добавить публикацию</button>
+    </div>
+
+    <div id="wrapper">
+
+      <div id="smoothmenu1">
+        <ul id="tab-menu" class="ddsmoothmenu">
+          	<li>Главная</li>
+          <% if current_user %>
+          	<li>Моя страница</li>
+	          <%= link_to logout_path do %>
+	          	<li>Выход</li>
+	          <% end %>
+          <% else %>
+          	<%= link_to welcome_path do %>
+          		<li><button>Регистрация/Войти</button></li>
+          	<% end %>
+          <% end %>
+        </ul>
+        <div class="tab-content">
+	        <%= yield %>
+	      </div>
+
+		<div class="clear"></div>
+      </div>
+    </div>
+
+    <div class="clearfix"></div>
+
+    <div class="push"></div>
+  </div>
+
+  <div id="footer-wrapper">
+    <div id="footer">
+      <div id="footer-content">
+
+        <div id="copyright">
+          <p>&copy; Copyright <script type="text/javascript">
+          var d = new Date()
+          document.write(d.getFullYear())
+          </script> Signature | CV / Resume Portfolio Template</p>
+        </div>
+        <p id="back-top"><a href="#top" class="tip_top" title="back to top">top &uarr;</a></p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

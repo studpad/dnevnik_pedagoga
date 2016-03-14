@@ -1,0 +1,20 @@
+<div class="tab show">
+  <h1>Все публикации</h1>
+   
+    <% @articles.each do |article| %>
+      <div class="clear"></div><br />
+      <div class="one-half">
+        <a href="style/images/art/large.jpg" rel="prettyPhoto">
+          <img src="https://cs7062.vk.me/c540106/v540106167/39a0b/oylup2Vt-LU.jpg" alt="" width="330" height="210" class="featured-left" />
+        </a>
+      </div>
+      <div class="one-half last">
+        <h3><%= article.title %></h3>
+
+        <p><%= article.text %></p>
+        <button><a href="#">Скачать</a></button>
+      </div>
+      <div class="clear"></div>
+      <div class="divider3"></div>
+    <% end %>
+</div>
