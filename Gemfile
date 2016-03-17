@@ -1,10 +1,14 @@
 source 'https://rubygems.org'
 
+group :test do
+  gem 'selenium-webdriver', '2.35.1'
+  gem 'capybara', '~> 2.4.0'
+  gem 'minitest'
+  gem 'growl', '1.0.3'
+end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -36,7 +40,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'sqlite3', '1.3.8'
+  gem 'rspec-rails', '2.13.1'
   gem 'byebug'
+  gem 'guard-rspec', '~> 2.5.0'
 end
 
 group :development do
