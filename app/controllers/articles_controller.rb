@@ -1,28 +1,26 @@
 class ArticlesController < ApplicationController
+
+	include SessionsHelper
+	before_action :signed_in_user, only: [:create, :destroy]
+	before_action :correct_user,   only: :destroy
+
  	def index
  		@articles = Article.all
  	end
-
-	def show
-		@article = Article.find(params[:id])
-	end
-
-	def new
-		@article = Article.new
-	end
 
 	def edit
 	  @article = Article.find(params[:id])
 	end
 
 	def create
-		@article = Article.new(article_params)
-
-		if @article.save
-			redirect_to @article
-		else
-			render 'new'
-  	end
+		@article = current_user.articles.build(article_params)
+    if @article.save
+      flash[:success] = "Micropost created!"
+      redirect_to root_url
+    else
+    	@feed_items = []
+      render 'static_pages/home'
+    end
   end
 
   def update
@@ -36,14 +34,19 @@ class ArticlesController < ApplicationController
 	end
 
 	def destroy
-	  @article = Article.find(params[:id])
 	  @article.destroy
-	 
 	  redirect_to articles_path
 	end
 
   private
-  def article_params
-    params.require(:article).permit(:title, :text, :category, :grade)
-  end
+	  def article_params
+	    params.require(:article).permit(:title, :text, :category, :grade)
+	  end
+
+	  def correct_user
+      @article = current_user.articles.find_by(id: params[:id])
+      redirect_to root_url unless current_user?(@article.user)
+    end
+
+
 end

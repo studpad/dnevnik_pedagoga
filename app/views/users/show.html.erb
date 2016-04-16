@@ -1,0 +1,28 @@
+<div class='user-profile'>
+	<%= render 'settings' %>
+
+	<div class='profile'>
+		<div class='avatar-name'>
+			<div class='avatar'>
+				<%= gravatar_for(@user)%>
+			</div>
+			<div class='name'>
+				<h2><%= @user.name %></h2>
+				<h4 class='text-muted'><%= pluralize(@user.articles.count, "article") %></h4>
+			</div>
+			<div class='clear'></div>
+		</div>
+		<%= render 'shared/stats' %>
+	</div>
+
+	<div class='follow-form'>
+	    <%= render 'follow_form' if logged_in? %>
+	</div>
+	<% if @user.articles.any? %>
+		<div class='user-article'>
+		  <ol class="posts">
+		    <%= render @articles %>
+		  </ol>
+		</div>
+	<% end %>
+</div>

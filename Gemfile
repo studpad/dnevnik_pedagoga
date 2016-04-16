@@ -9,6 +9,7 @@ end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
+gem 'bootstrap-sass', '>= 2.3.2.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -19,6 +20,10 @@ gem 'coffee-rails', '~> 4.1.0'
 # gem 'therubyracer', platforms: :ruby
 gem 'sorcery', '~> 0.9.1'
 gem 'simple_form'
+gem 'active_type'
+gem 'activeadmin', github: 'activeadmin'
+gem 'faker', '~> 1.1.2'
+
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -49,8 +54,16 @@ end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
+  #for deploying
+  gem 'capistrano'
+  gem 'capistrano-rails-console'
+  gem 'capistrano3-unicorn'
+  gem 'capistrano-rbenv'
+  gem 'capistrano-rails'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rvm'
+  gem 'guard-rails'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
-

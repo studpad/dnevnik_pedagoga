@@ -5,64 +5,40 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
   <link rel="stylesheet" href="http://webfonts.ru/import/arimo.css" type="text/css" media="screen" />
 </head>
 <body>
-  <a name="top" id="top"></a>
 
-  <div id="strip"></div>
-
-  <div id="container">
-
-    <div id="header">
-      <%= link_to controller: 'articles' do%>
-      	<img src="/images/logo.png" width="125" alt="" class="logo" />
-      <% end %>
-    		<button id='add-new-material'>Добавить публикацию</button>
-    </div>
-
-    <div id="wrapper">
-
-      <div id="smoothmenu1">
-        <ul id="tab-menu" class="ddsmoothmenu">
-          	<li>Главная</li>
-          <% if current_user %>
-          	<li>Моя страница</li>
-	          <%= link_to logout_path do %>
-	          	<li>Выход</li>
-	          <% end %>
-          <% else %>
-          	<%= link_to welcome_path do %>
-          		<li><button>Регистрация/Войти</button></li>
-          	<% end %>
+  <div class="container">
+    <div class="header clearfix">
+      <nav>
+        <ul class="nav nav-pills pull-right">
+          <li role="presentation"><%= link_to "Главная", root_path %></li>
+          <% if logged_in? %>
+            <li role="presentation"><%= link_to "Мой профиль", current_user %></li>
           <% end %>
+          <li role="presentation"><%= link_to "Педагоги", users_path %></li>
+          <li role="presentation">
+            <% if logged_in? %>
+              <%= link_to "Выход", signout_path %>
+            <% else %>
+              <%= link_to "Войти", signin_path %>
+            <% end %>
+          </li>
         </ul>
-        <div class="tab-content">
-	        <%= yield %>
-	      </div>
-
-		<div class="clear"></div>
-      </div>
+      </nav>
+      <h3 class="text-muted"><%= link_to "Дневник педагога", root_path %></h3>
     </div>
 
-    <div class="clearfix"></div>
+    <% flash.each do |key, value| %>
+      <%= content_tag(:div, value, class: "alert alert-#{key}") %>
+    <% end %>
 
-    <div class="push"></div>
-  </div>
-
-  <div id="footer-wrapper">
-    <div id="footer">
-      <div id="footer-content">
-
-        <div id="copyright">
-          <p>&copy; Copyright <script type="text/javascript">
-          var d = new Date()
-          document.write(d.getFullYear())
-          </script> Signature | CV / Resume Portfolio Template</p>
-        </div>
-        <p id="back-top"><a href="#top" class="tip_top" title="back to top">top &uarr;</a></p>
-      </div>
-    </div>
+    <div class='wrapper'>
+      <%= yield %>
   </div>
 </body>
 </html>

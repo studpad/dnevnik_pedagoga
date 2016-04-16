@@ -1,2 +1,22 @@
 <% provide(:title, 'Главная') %>
-<h1>Home page nah</h1>
+<% if logged_in? %>
+    <div class='col col-3'>
+      <section>
+        <%= render 'shared/user_info' %>
+      </section>
+      <% if current_user.followed_users.count > 0 %>
+        <!--<section>
+          <%= render 'shared/article_form' %>
+        </section> -->
+      <% end %>
+    </div>
+    <div class='col col-5'>
+      <% if current_user.followed_users.count > 0 %>
+        <h3>Публикации</h3>
+        <%= render 'shared/feed' %>
+      <% else %>
+        <h4 class='text-muted'>Здесь отображаются публикации тех пользователей, которых Вы читаете. Пока Вы никого не читаете.</h4>
+      <% end %>
+    </div>
+    <div class='clear'></div>
+<% end %>

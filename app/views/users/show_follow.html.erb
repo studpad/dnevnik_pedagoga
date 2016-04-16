@@ -1,0 +1,9 @@
+<% provide(:title, @title) %>
+<div class='all-users'>
+  <% @users.each do |u|%>
+    <div class='col col-20p text-align-center user-all-user'>
+      <%= gravatar_for u %>
+      <h4><%= link_to u.name, u %></h4>
+    </div>
+  <% end %>
+</div>

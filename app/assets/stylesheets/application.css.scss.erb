@@ -1,0 +1,213 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {margin:0; padding:0; border:0; outline:0; font-size:100%; vertical-align:baseline; background:transparent }
+ol, ul { list-style:none }
+blockquote, q { quotes:none }
+blockquote:before, blockquote:after, q:before, q:after { content:''; content:none }:focus { outline:0 }
+.clear { clear:both; display:block; overflow:hidden; visibility:hidden; width:0; height:0 }
+body{
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #333;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+input{
+  padding: 7px;
+  border-radius: 6px;
+  border: 1px solid #e5e5e5;
+  outline: none !important;
+}
+h2{
+  font-size: 28px;
+}
+h3{
+  font-size: 24px;
+}
+h4{
+  font-size: 18px;
+}
+h5{
+  font-size: 16px;
+}
+.text-align-center{
+  text-align: center;
+}
+.header{
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #e5e5e5;
+  h3{
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 40px;
+  }
+}
+.container{
+  max-width: 1100px;
+}
+.wrapper{
+  .col{
+    float: left;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .col-3{
+    width: 38%;
+  }
+  .col-5{
+    width: 62%;
+  }
+  .col-25p{
+    width: 25%;
+  }
+  .col-20p{
+    width: 20%;
+  }
+}
+.a-delete{
+  font-size: 12px;
+}
+.posts{
+  margin-top: 15px;
+  li{
+    min-height: 70px; 
+    padding: 15px 0px;
+    border-top: 1px solid #e5e5e5;
+    .avatar{
+      float: left;
+      width: 10%;
+      img{
+        width: 100%;
+        border-radius: 200px;
+      }
+    }
+    .user-content{
+      padding-left: 10px;
+      float: left;
+      width: 90%;
+      .user{
+        font-size: 15px;
+      }
+      .content{
+        margin: 2px 0px;
+      }
+    }
+  }
+}
+.profile{
+  .avatar-name{
+    margin-bottom: 5px;
+    .avatar{
+      width: 15%;
+      float: left;
+      img{
+        width: 100%;
+        border-radius: 200px;
+      }
+    }
+    .name{
+      width: 85%;
+      padding-left: 10px; 
+      float: left;
+    }
+  }
+  .follow{
+    text-align: left;
+    .followers{
+      float: left;
+      margin: 15px 0px;
+      padding-right: 15px;
+    }
+    .followed{
+      float: left;
+      margin: 15px 0px;
+      border-left: 1px solid #e5e5e5;
+      padding-left: 15px;
+    }
+    .num-follow{
+      padding-top: 5px;
+      font-size: 15px;
+    }
+  }
+}
+.user-profile{
+  .avatar{
+    width: 10% !important;
+  }
+  .name{
+    padding-left: 25px !important;
+    h4{
+      margin-top: 10px;
+    }
+  }
+  .action-user-profile{
+    float: right;
+  }
+}
+.center-block{
+  text-align: center;
+  margin-top: 50px;
+  h2{
+    margin-bottom: 25px;
+  }
+  input{
+    width: 350px;
+    margin-bottom: 15px;
+  }
+}
+
+.all-users{
+  margin-top: 20px;
+  .profile{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-top: 1px solid #e5e5e5;
+    .name{
+      h4{
+        margin-bottom: 5px;
+      }
+      div{
+        margin-bottom: 5px;
+      }
+    }
+  }
+  .user-all-user{
+    padding: 20px;
+    height: 200px;
+  }
+  img{
+    border-radius: 200px;
+  }
+}
+.follow{
+  .followers, .followed{
+    a{
+      color: #333 !important;
+    }
+  }
+}
+
+
+
+
+

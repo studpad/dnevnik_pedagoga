@@ -1,0 +1,16 @@
+<% provide(:title, "Edit user") %>
+<div class='center-block'>
+  <h2>Изменение профиля</h2>
+  <div class="row">
+    <div class="span6 offset3">
+      <%= simple_form_for(@user, html: { class: 'form-vertical' }) do |f| %>
+        <%= f.input :name, label: false, input_html: { class: 'input-sp', placeholder: 'Имя' } %>
+        <%= f.input :email, label: false, input_html: { class: 'input-sp',  placeholder: 'Электронный адрес' } %>
+        <%= f.input :password, label: false, input_html: { class: 'input-sp',  placeholder: 'Пароль' } %>
+        <%= f.input :password_confirmation, label: false,  input_html: { class: 'input-sp',  placeholder: 'Повторите пароль' } %>
+        <%= f.button :submit, class: 'btn-st btn-primary', value: 'Изменить' %>
+      <% end %>
+      <a href="http://gravatar.com/emails">Изменить изображение профиля</a>
+    </div>
+  </div>
+</div>

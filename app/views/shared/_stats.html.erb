@@ -1,0 +1,23 @@
+<div class='follow'>
+  <div class='followers'>
+    <h5>
+	    <% if current_user?(@user) %>
+	    	<%= link_to "Я читаю", following_user_path(@user) %>
+	    <% else %>
+	    	<%= link_to "Читаемые", following_user_path(@user) %>
+	    <% end %>
+  	</h5>
+    <div class='num-follow num-followed'><%= @user.followed_users.count %></div>
+  </div>
+  <div class='followed'>
+  	<h5>
+	    <% if current_user?(@user) %>
+	    	<%= link_to "Меня читают", followers_user_path(@user) %>
+	    <% else %>
+	    	<%= link_to "Читают", followers_user_path(@user) %>
+	    <% end %>
+  	</h5>
+    <div class='num-follow num-followers'><%= @user.followers.count %></div>
+  </div>
+  <div class='clear'></div>
+</div>

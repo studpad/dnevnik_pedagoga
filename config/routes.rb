@@ -1,12 +1,18 @@
 Rails.application.routes.draw do
+  resources :microposts
   resources :users do
-    resources :articles
+    member do
+      get :following, :followers, :show_follow
+    end
   end
   resources :sessions
-  get 'logout' => 'sessions#destroy'
-  get 'welcome' => 'sessions#new'
+  resources :articles
+  resources :relationships, only: [:create, :destroy]
+  match '/signin',  to: 'sessions#new',         via: 'get'
+  match '/signout', to: 'sessions#destroy',     via: 'get'
+  match '/signup', to: 'users#new',     via: 'get'
 
-  get 'static_pages/home'
+  match '/home', to: 'static_pages#home', via: 'get'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -62,5 +68,5 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-  root 'articles#index'
+  root 'static_pages#home'
 end

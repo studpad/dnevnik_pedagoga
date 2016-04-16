@@ -1,0 +1,24 @@
+<div class='profile'>
+	<div class='avatar-name'>
+		<div class='avatar'>
+			<%= link_to gravatar_for(current_user), current_user %>
+		</div>
+		<div class='name'>
+			<h4><%= link_to current_user.name, current_user %></h4>
+			<div><%= pluralize(current_user.articles.count, "article") %></div>
+		</div>
+		<div class='clear'></div>
+	</div>
+
+	<div class='follow'>
+		<div class='followers'>
+			<h5><%= link_to "Я читаю", following_user_path(current_user) %></h5>
+			<div class='num-follow num-followed'><%= current_user.followed_users.count %></div>
+		</div>
+		<div class='followed'>
+			<h5><%= link_to "Меня читают", followers_user_path(current_user) %></h5>
+			<div class='num-follow num-followers'><%= current_user.followers.count %></div>
+		</div>
+		<div class='clear'></div>
+	</div>
+</div>

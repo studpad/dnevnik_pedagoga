@@ -1,0 +1,19 @@
+<li>
+	<!--<div class='avatar'>
+    <%= gravatar_for(article.user) %>
+  </div>-->
+  <div class='user-content'>
+    <div class="user">
+      <%= link_to article.user.name, article.user %>
+    </div>
+    <div class='content'><%= article.text %></div>
+    <div class="timestamp text-muted">Posted <%= time_ago_in_words(article.created_at) %> ago.</div>
+    <% if current_user?(article.user) %>
+      <%= link_to "Удалить", article, method: :delete,
+                                       data: { confirm: "Действительно удалить публикацию?" },
+                                       title: article.text,
+                                       class: 'a-delete' %>
+    <% end %>
+  </div>
+  <div class='clear'></div>
+</li>

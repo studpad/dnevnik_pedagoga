@@ -1,0 +1,11 @@
+{
+  "id": "deploy",
+  // generate this with: openssl passwd -1 "plaintextpassword"
+  "password": "pm1tolc2kz_plastvox",
+  // the below should contain a list of ssh public keys which should
+  // be able to login as deploy
+  "ssh_keys": [ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDTHxeIiIwy1SrDTVP4FJhDKFeC6iNCwQyIdN3UadIf8nm5lE5nfcQNEnqMEEgTvE0kwwq4XniMjDFWaRoajETnoXPQf2THfjDyasEeyK9W5zYDwNcOjE36xVPI+61eLH7/rnsCXTOIf1DjFr/6q4IswomGImjPqqW/lyfFAu3KBPsQSZ4mcoK2crlYivzMpFooWDyD//sQsZ9ptcXosuCH84ZTMmtv5eOgSmBhBjspZ6V/I17WcKnCytvt2o2T8ttuUR65AZCYewycDwcaBdQlvyhLf6jzl1AiyC1MXwPRauDes+9+TcojltQHCqojojTyYINyHoIvskS6gWkoD329 studpad@yandex.ru
+  ],
+  "groups": [ "sysadmin"],
+  "shell": "\/bin\/bash"
+}
